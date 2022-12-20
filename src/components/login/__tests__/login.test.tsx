@@ -5,9 +5,10 @@ import R from "../../../constants/R";
 import AuthContext, { AuthContextProvider } from "../../../contexts/auth.context";
 import LoginPage from "../login.page";
 
+const mockNavigate = jest.fn();
 jest.mock("react-router", () => ({
   ...jest.requireActual("react-router"),
-  useNavigate: jest.fn(),
+  useNavigate: ()=>mockNavigate,
 }));
 
 describe("Login form", () => {
@@ -77,6 +78,6 @@ describe("Login form", () => {
       fireEvent.click(loginBtn!);
     });
     expect(screen.getByText("testuser01")).toBeInTheDocument();
-    //expect(navigate).toBeCalledWith("/");
+    expect(mockNavigate).toBeCalledWith("/");
   })
 });
