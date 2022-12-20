@@ -33,7 +33,9 @@ export default function LoginForm(props: ILoginFormProps) {
       setError('');
       navigate("/");
     } catch (e) {
-      setError(e as string);
+      if (typeof (e) == "string") {
+        setError(e as string);
+      }
     }
   };
 
