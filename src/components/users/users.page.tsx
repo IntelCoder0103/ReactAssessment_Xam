@@ -9,11 +9,16 @@ export interface IUsersPageProps {}
 function UsersPage(props: IUsersPageProps) {
   return (
     <LayoutDefault>
-      <Box display="flex" gap="2rem">
-        <Box width={"24rem"}>
+      <Box
+        display="flex"
+        gap="2rem"
+        flexWrap="wrap"
+        p={3}
+      >
+        <Box width={"24rem"} maxWidth={"95vw"}>
           <UsersAddForm />
         </Box>
-        <Box flexGrow={1} >
+        <Box flexGrow={1} height={600}>
           <UsersTable />
         </Box>
       </Box>
